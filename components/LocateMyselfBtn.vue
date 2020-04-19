@@ -1,22 +1,17 @@
 <template>
-  <div id="locate-myself-btn" @click="test()">
+  <div id="locate-myself-btn" @click="onLocate()">
     <b-img src="~/assets/locate-icon.svg" />
   </div>
 </template>
 
 <script>
-import { putAMark, locateMyself } from "../plugins/leaflet_api";
+import { locateMyself } from "../plugins/leaflet_api";
 
 export default {
   mounted() {},
   methods: {
-    async test() {
-      let myLocation = await locateMyself();
-      putAMark({
-        latlng: myLocation.latlng,
-        icon: "SOLDOUT",
-        popup: "測試測試"
-      });
+    onLocate() {
+      locateMyself();
     }
   }
 };
