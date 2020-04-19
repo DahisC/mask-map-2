@@ -1,5 +1,5 @@
 <template>
-  <b-col id="activity-desc" cols="12" sm="7">
+  <b-col id="activity-desc" cols="7">
     <p
       class="font-weight-bold"
       :style="{ color: 'var(--color-main)', fontSize: '1.5em' }"

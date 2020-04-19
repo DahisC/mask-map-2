@@ -4,7 +4,7 @@
     <b-sidebar id="sidebar" title="Mask Map" shadow width="375px">
       <b-container fluid>
         <b-row>
-          <b-col cols="12" sm="5">
+          <b-col cols="5">
             <b-img src="~/assets/doctor-icon.svg" fluid />
           </b-col>
           <ActivityDescription />

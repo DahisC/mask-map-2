@@ -3,9 +3,6 @@ let icons = {};
 
 export const initMap = () => {
   return new Promise((resolve, reject) => {
-    console.log("==========HEROKU V==========");
-    console.log(process.env.LEFTLET_ACCESS_TOKEN);
-    console.log(process.env.leafletAccessToken);
     let mapObj = L.map("map").setView([23.959786, 120.971388], 8);
     L.tileLayer(
       `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${process.env.leafletAccessToken}`,
