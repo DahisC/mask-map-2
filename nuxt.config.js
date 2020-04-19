@@ -1,10 +1,10 @@
-require("dotenv").config();
+// require("dotenv").config();
 
 module.exports = {
   env: {
     // leafletAccessToken:
     //   "pk.eyJ1IjoiZGFoaXNjIiwiYSI6ImNrOTVmZ24xNzBiM2wzZXAycnNxYTJoemgifQ.y51LxBKtrU9iu_Z8O8sSEQ"
-    leafletAccessToken: process.env.LEFTLET_ACCESS_TOKEN || ""
+    leafletAccessToken: process.env.LEFTLET_ACCESS_TOKEN || "asd"
   },
   mode: "universal",
   /*
