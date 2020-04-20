@@ -8,7 +8,7 @@ export const initMap = () => {
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        '口罩地圖 &copy; Code: <a target="_blank" href="https://github.com/DahisC/mask-map-2">DahisC</a> / Design: <a target="_blank" href="https://www.behance.net/gallery/93048833/UIUX-?tracking_source=for_you_feed_user_published">K.T</a>'
     }).addTo(mapObj);
     map = mapObj;
     initIcons();
@@ -24,11 +24,13 @@ export const locateMyself = () => {
       map.setView(e.latlng, 15);
       try {
         createRes = await _createMark({ latlng: e.latlng });
-        _openPopup({ id: createRes.id });
+        _openPopup({ id: createRes.id, latlng: e.latlng });
+        resolve({ latlng: e.latlng });
       } catch (err) {
         await _deleteMark({ id: err.id });
         createRes = await _createMark({ latlng: e.latlng });
-        _openPopup({ id: createRes.id });
+        _openPopup({ id: createRes.id, latlng: e.latlng });
+        resolve({ latlng: e.latlng });
       }
     }
   });
@@ -63,14 +65,17 @@ export const _deleteMark = ({ id }) => {
       resolve();
     } else {
       // 不存在 -> reject
-      reject("[ERROR] _deleteMark");
+      reject("[ERROR] _deleteMark: cannot find the mark on the map.");
     }
   });
 };
 
 export const _openPopup = ({ id, latlng }) => {
-  markers[id].openPopup();
-  map.panTo(latlng);
+  return new Promise((resolve, reject) => {
+    markers[id].openPopup();
+    map.panTo(latlng);
+    resolve();
+  });
 };
 
 function initIcons() {

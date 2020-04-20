@@ -4,7 +4,8 @@ const pharmaciesData_API =
 export const state = () => ({
   pharmacies: [],
   searchingCity: "",
-  searchingArea: ""
+  searchingArea: "",
+  myLocation: undefined
 });
 
 export const getters = {
@@ -14,10 +15,44 @@ export const getters = {
         p.properties.address.includes(state.searchingCity + state.searchingArea)
       );
     } else {
-      console.log(state.pharmacies);
+      // console.log(state.pharmacies);
       // return state.pharmacies; // default: []
       return [];
     }
+  },
+  nearbyPharmacies: state => {
+    if (!state.myLocation) {
+      return [];
+    }
+    const range = 0.025;
+    const mLat = state.myLocation.lat;
+    const mLng = state.myLocation.lng;
+
+    return state.pharmacies.filter(p => {
+      const pLat = p.geometry.coordinates[1];
+      const pLng = p.geometry.coordinates[0];
+      return (
+        pLat <= mLat + range &&
+        pLat >= mLat - range &&
+        pLng <= mLng + range &&
+        pLng >= mLng - range
+      );
+    });
+
+    // const range = 0.05;
+    // const mLat = latlng.lat;
+    // const mLng = latlng.lng;
+
+    // return state.pharmacies.filter(p => {
+    //   const pLat = p.geometry.coordinates[1];
+    //   const pLng = p.geometry.coordinates[0];
+    //   return (
+    //     pLat <= mLat + range &&
+    //     pLat >= mLat - range &&
+    //     pLng <= mLng + range &&
+    //     pLng >= mLng - range
+    //   );
+    // });
   }
 };
 
@@ -28,6 +63,9 @@ export const mutations = {
   search(state, { cityName, areaName }) {
     state.searchingCity = cityName;
     state.searchingArea = areaName;
+  },
+  updateMyLocation(state, { latlng }) {
+    state.myLocation = latlng;
   }
 };
 
