@@ -15,13 +15,8 @@
     <transition-group name="fade">
       <template v-if="unionOfPharmacies.length !== 0">
         <b-card v-for="p in unionOfPharmacies" :key="p.properties.id">
-          <!-- <div class="card-locate-btn">
-        <b-img src="../assets/locate-icon.svg" width="40px" />
-        </div>-->
-          <!-- <div class="card-call-btn">
-        <b-img src="../assets/call-icon.svg" width="30px" />
-        </div>-->
           <b-icon
+            v-b-toggle.sidebar
             id="card-locate-btn"
             icon="cursor-fill"
             class="rounded-circle bg-info"
@@ -137,7 +132,7 @@ export default {
     BIconArrow90degRight
   },
   mounted() {
-    console.log(this.$store.state.searching.myLocation);
+    // console.log(this.$store.state.searching.myLocation);
   },
 
   methods: {
@@ -252,19 +247,12 @@ export default {
   position: relative;
   border-radius: 10px;
   margin: 10px 0px;
+  box-shadow: 6px 6px 6px 1px rgba(0, 0, 0, 0.1);
 }
 
-/* .card-text > div > span {
-  color: red;
-  height: 10px;
-  width: 20px;
-  display: inline-block;
+.card-text > div > span:nth-of-type(2) {
+  vertical-align: bottom;
 }
-
-.card-text > div > p {
-  color: aqua;
-  display: inline;
-} */
 
 .card-footer {
   padding: 0;

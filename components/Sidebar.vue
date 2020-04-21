@@ -1,9 +1,19 @@
 <template>
   <div>
-    <div id="sidebar-toggler" v-b-toggle.sidebar>口罩小精靈</div>
+    <div id="sidebar-toggler" v-b-toggle.sidebar>側邊欄</div>
     <b-sidebar id="sidebar" shadow width="400px">
       <template v-slot:title>
-        星期五
+        <div>
+          <span>口罩地圖</span>
+          <span
+            :style="{
+              fontSize: '0.5em',
+              textAlign: 'right',
+              color: 'rgba(0, 0, 0, 0.25)'
+            }"
+            >資料更新於：0 秒前</span
+          >
+        </div>
       </template>
       <b-container fluid>
         <b-row>
@@ -34,13 +44,19 @@ export default {
 </script>
 
 <style scoped>
+#sidebar > header > strong > span:nth-child(2) {
+  font-size: 0.5em;
+  color: rgba(0, 0, 0, 0.25);
+  margin-right: 10px;
+}
+
 #sidebar-toggler {
   font-family: Microsoft JhengHei;
   position: absolute;
   top: 100px;
   left: 0px;
   z-index: 1000;
-  padding: 10px;
+  padding: 7.5px;
   text-align: center;
   writing-mode: vertical-lr;
   background-color: var(--color-main);
@@ -49,13 +65,11 @@ export default {
   cursor: pointer;
   border: 3px solid rgba(0, 0, 0, 0.125);
   border-left-style: none;
+  opacity: 0.7;
 }
 
 #sidebar-toggler:hover {
-  /* border: 3px solid var(--color-main);
-  background-color: rgba(0, 0, 0, 0);
-  color: var(--color-main);
-  border-left-style: none; */
+  opacity: 0.9;
 }
 
 .b-sidebar-body > .container-fluid > .row {

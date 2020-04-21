@@ -36,7 +36,7 @@ export const _createMark = ({
   id = "Myself",
   latlng,
   icon = "DEFAULT",
-  popup = "金罵底家"
+  popup
 }) => {
   return new Promise(async (resolve, reject) => {
     const createFunc = () => {
@@ -44,7 +44,7 @@ export const _createMark = ({
         .addTo(map)
         .bindPopup(
           L.popup({ maxWidth: "auto" }).setContent(
-            initContent({ pharmacy: popup })
+            popup ? initContent({ pharmacy: popup }) : whereAmI()
           )
         );
       // .bindPopup(initContent({ pharmacy: popup }));
@@ -84,11 +84,24 @@ export const _openPopup = ({ id, latlng }) => {
   });
 };
 
+function whereAmI() {
+  const choices = [
+    "いまここ",
+    "金罵底家",
+    "你在這裡",
+    "You are HERE.",
+    "Hello World!"
+  ];
+  return `<p style="text-align: center;">${
+    choices[Math.floor(Math.random() * 5)]
+  }</p>`;
+}
+
 function initContent({ pharmacy: p }) {
   return `
   <div style="border: 2px solid rgba(0, 0, 0, 0.125); width: 300px; border-radius: 10px 10px 0px 0px; margin-bottom: 58px;">
     <div style="padding: 10px;">
-      <div><p style="margin: 10px 0px; font-size: 1.8em; color: #0ba29c; font-weight: bold;">${
+      <div><p style="margin: 0px 0px 10px 0px; font-size: 1.8em; color: #0ba29c; font-weight: bold;">${
         p.name
       }</p></div>
       <div style="color: #706e6b; font-size: 1.2em;"><span><img style="vertical-align: unset;" src="${

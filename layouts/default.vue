@@ -26,7 +26,7 @@
 }
 
 .leaflet-popup-content {
-  min-width: 300px !important;
+  min-width: 100px;
   max-width: 300px !important;
   max-height: 600px !important;
 }
