@@ -12,7 +12,7 @@
           </b-col>
           <ActivityDescription />
         </b-row>
-        <b-row v-if="debugLog !== ''">
+        <b-row>
           <b-col cols="12">
             (Debug)
             {{ JSON.stringify(debugLog.status + "++ " + debugLog.statusText) }}
