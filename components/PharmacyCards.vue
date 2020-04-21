@@ -1,5 +1,6 @@
 <template>
   <b-col cols="12">
+    <p>(Debug) {{ debugLog }}</p>
     <p
       v-if="searchingCity === '' && unionOfPharmacies.length === 0"
       class="text-center"
@@ -207,6 +208,9 @@ export default {
 
       // return this.$store.getters["searching/unionOfPharmacies"];
       return sortedPharmacies;
+    },
+    debugLog() {
+      return this.$store.state.searching.debugLog;
     }
   }
 };

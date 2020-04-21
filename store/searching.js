@@ -7,7 +7,8 @@ export const state = () => ({
   pharmacies: [],
   searchingCity: "",
   searchingArea: "",
-  myLocation: {} // 初始化時也許要盡量避免 undefined 或 null
+  myLocation: {}, // 初始化時也許要盡量避免 undefined 或 null
+  debugLog: ""
 });
 
 export const getters = {
@@ -61,6 +62,9 @@ export const mutations = {
   },
   updateMyLocation(state, { latlng }) {
     state.myLocation = latlng;
+  },
+  updateDebugLog(state, { log }) {
+    state.debugLog = log;
   }
 };
 
@@ -69,8 +73,10 @@ export const actions = {
     try {
       let res = await this.$axios.get(pharmaciesData_API);
       ctx.commit("updatePharmacies", { pharmacies: res.data.features });
+      ctx.commit("updateDebugLog", { log: "good" });
     } catch (err) {
       console.error(err);
+      ctx.commit("updateDebugLog", { log: "error" });
     }
   }
 };
