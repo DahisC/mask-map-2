@@ -20,8 +20,8 @@ export const locateMyself = () => {
   return new Promise((resolve, reject) => {
     map.locate().once("locationfound", onLocationFound);
     async function onLocationFound(e) {
-      e.latlng.lat += (Math.random() * 2).toFixed(2) / 10;
-      e.latlng.lng += (Math.random() * 2).toFixed(2) / 10;
+      // e.latlng.lat += (Math.random() * 2).toFixed(2) / 10;
+      // e.latlng.lng += (Math.random() * 2).toFixed(2) / 10;
 
       map.setView(e.latlng, 15); // 縮近地圖
 
