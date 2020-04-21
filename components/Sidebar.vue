@@ -15,8 +15,8 @@
         <b-row>
           <b-col cols="12">
             (Debug)
-            {{ JSON.stringify(debugLog.status + "++ " + debugLog.statusText) }}
-            {{ JSON.stringify(debugLog.request) }}
+            {{ debugLog.status + "++" + debugLog.statusText }}
+            {{ debugLog.request }}
           </b-col>
         </b-row>
         <b-row>
