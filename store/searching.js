@@ -1,5 +1,5 @@
 const pharmaciesData_API =
-  process.env.NODE_ENV !== "development"
+  process.env.NODE_ENV === "development"
     ? "https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json"
     : "https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json";
 
