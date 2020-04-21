@@ -10,4 +10,24 @@
   --color-dark-gray: #807e7a;
   --color-gray: #706e6b;
 }
+
+@font-face {
+  font-family: NotoSansTC-Light;
+  src: url("../static/fonts/NotoSansTC-Light.otf");
+}
+
+@font-face {
+  font-family: NotoSansTC-Thin;
+  src: url("../static/fonts/NotoSansTC-Thin.otf");
+}
+
+* {
+  font-family: NotoSansTC-Light;
+}
+
+.leaflet-popup-content {
+  min-width: 300px !important;
+  max-width: 300px !important;
+  max-height: 600px !important;
+}
 </style>

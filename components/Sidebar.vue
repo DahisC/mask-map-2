@@ -1,7 +1,10 @@
 <template>
   <div>
     <div id="sidebar-toggler" v-b-toggle.sidebar>口罩小精靈</div>
-    <b-sidebar id="sidebar" title="Mask Map" shadow width="400px">
+    <b-sidebar id="sidebar" shadow width="400px">
+      <template v-slot:title>
+        星期五
+      </template>
       <b-container fluid>
         <b-row>
           <b-col cols="5">

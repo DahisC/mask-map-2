@@ -16,12 +16,12 @@ export default {
     initMap();
   },
   computed: {
-    filteredPharmacies() {
-      return this.$store.getters["searching/filteredPharmacies"];
+    unionOfPharmacies() {
+      return this.$store.getters["searching/unionOfPharmacies"];
     }
   },
   watch: {
-    filteredPharmacies(next, prev) {
+    unionOfPharmacies(next, prev) {
       prev.forEach(fp => {
         _deleteMark({
           id: fp.properties.id
@@ -34,10 +34,10 @@ export default {
             id: fp.properties.id,
             latlng: [fp.geometry.coordinates[1], fp.geometry.coordinates[0]],
             icon: maskStockIcon({ stock: fp.properties.mask_adult }),
-            popup: fp.properties.name
+            popup: fp.properties
           });
         });
-      }, 300);
+      }, 250);
     }
   }
 };

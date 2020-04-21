@@ -8,12 +8,14 @@
     </p>
     <template>
       <p :style="{ color: 'var(--color-gray)' }">今天是身分證末一碼為</p>
-      <p>
-        「<span
+      <p :style="{ color: 'var(--color-gray)' }">
+        「
+        <span
           class="font-weight-bold"
           :style="{ color: 'var(--color-yellow)', fontSize: '1.2em' }"
           >{{ whoCanBuyMasks }}</span
-        >」
+        >
+        」
       </p>
       <p :style="{ color: 'var(--color-gray)' }">的民眾才能購買口罩唷！</p>
     </template>

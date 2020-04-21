@@ -1,3 +1,5 @@
+import Vue from "vue";
+
 const pharmaciesData_API =
   "https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json";
 
@@ -5,7 +7,7 @@ export const state = () => ({
   pharmacies: [],
   searchingCity: "",
   searchingArea: "",
-  myLocation: undefined
+  myLocation: {} // 初始化時也許要盡量避免 undefined 或 null
 });
 
 export const getters = {
@@ -21,7 +23,7 @@ export const getters = {
     }
   },
   nearbyPharmacies: state => {
-    if (!state.myLocation) {
+    if (Object.keys(state.myLocation).length === 0) {
       return [];
     }
     const range = 0.025;
@@ -38,21 +40,14 @@ export const getters = {
         pLng >= mLng - range
       );
     });
-
-    // const range = 0.05;
-    // const mLat = latlng.lat;
-    // const mLng = latlng.lng;
-
-    // return state.pharmacies.filter(p => {
-    //   const pLat = p.geometry.coordinates[1];
-    //   const pLng = p.geometry.coordinates[0];
-    //   return (
-    //     pLat <= mLat + range &&
-    //     pLat >= mLat - range &&
-    //     pLng <= mLng + range &&
-    //     pLng >= mLng - range
-    //   );
-    // });
+  },
+  // 取上方兩個 getter 的聯集以統一渲染
+  unionOfPharmacies: (state, getters) => {
+    // Set 會自動排除相同的物件
+    // 因 Getter 的物件來源一樣（state.pharmacies），所以重複 ID 的物件必定會相同
+    return new Set(
+      getters.nearbyPharmacies.concat(getters.filteredPharmacies).map(p => p)
+    );
   }
 };
 
