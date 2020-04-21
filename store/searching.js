@@ -1,7 +1,7 @@
-import Vue from "vue";
-
 const pharmaciesData_API =
   "https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json";
+const pharmaciesData_API_CORS = `
+https://cors-anywhere.herokuapp.com/${pharmaciesData_API}`;
 
 export const state = () => ({
   pharmacies: [],
@@ -71,7 +71,12 @@ export const mutations = {
 export const actions = {
   async readPharmacies(ctx) {
     try {
-      let res = await this.$axios.get(pharmaciesData_API);
+      let res = await this.$axios.get(
+        process.env.NODE_ENV === "development"
+          ? pharmaciesData_API
+          : pharmaciesData_API_CORS
+      );
+      console.log(process.env.NODE_ENV);
       ctx.commit("updateDebugLog", { log: res });
       console.log(res);
       ctx.commit("updatePharmacies", { pharmacies: res.data.features });
