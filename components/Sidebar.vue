@@ -13,13 +13,6 @@
           <ActivityDescription />
         </b-row>
         <b-row>
-          <b-col cols="12">
-            (Debug)
-            {{ debugLog.status + "++" + debugLog.statusText }}
-            {{ debugLog.request }}
-          </b-col>
-        </b-row>
-        <b-row>
           <Searching />
         </b-row>
         <b-row>
@@ -36,12 +29,7 @@ import PharmacyCards from "~/components/PharmacyCards";
 import Searching from "~/components/Searching";
 
 export default {
-  components: { ActivityDescription, PharmacyCards, Searching },
-  computed: {
-    debugLog() {
-      return this.$store.state.searching.debugLog;
-    }
-  }
+  components: { ActivityDescription, PharmacyCards, Searching }
 };
 </script>
 
