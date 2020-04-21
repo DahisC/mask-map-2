@@ -65,10 +65,21 @@
       </div>
       <!-- footer -->
       <template v-slot:modal-footer>
-        <b-button variant="outline-danger">
+        <b-button
+          variant="outline-danger"
+          @click="$bvModal.hide('searching-modal')"
+        >
           <b-icon-x />
         </b-button>
-        <b-button variant="info" @click="search()">
+        <b-button
+          variant="info"
+          @click="
+            () => {
+              search();
+              $bvModal.hide('searching-modal');
+            }
+          "
+        >
           <b-icon-search scale="0.8" />
         </b-button>
       </template>

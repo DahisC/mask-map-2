@@ -44,5 +44,10 @@ div#locate-myself-btn {
   z-index: 900;
   cursor: pointer;
   margin: 20px;
+  opacity: 0.75;
+}
+
+div#locate-myself-btn:hover {
+  opacity: 1;
 }
 </style>

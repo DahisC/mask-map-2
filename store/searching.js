@@ -72,11 +72,12 @@ export const actions = {
   async readPharmacies(ctx) {
     try {
       let res = await this.$axios.get(pharmaciesData_API);
+      ctx.commit("updateDebugLog", { log: res });
+      console.log(res);
       ctx.commit("updatePharmacies", { pharmacies: res.data.features });
-      ctx.commit("updateDebugLog", { log: "good" });
     } catch (err) {
       console.error(err);
-      ctx.commit("updateDebugLog", { log: "error" });
+      ctx.commit("updateDebugLog", { log: err });
     }
   }
 };
