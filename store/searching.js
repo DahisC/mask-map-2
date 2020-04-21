@@ -1,7 +1,7 @@
 const pharmaciesData_API =
-  "https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json";
-const pharmaciesData_API_CORS = `
-https://cors-anywhere.herokuapp.com/${pharmaciesData_API}`;
+  process.env.NODE_ENV !== "development"
+    ? "https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json"
+    : "https://cors-anywhere.herokuapp.com/https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json";
 
 export const state = () => ({
   pharmacies: [],
@@ -71,11 +71,8 @@ export const mutations = {
 export const actions = {
   async readPharmacies(ctx) {
     try {
-      let res = await this.$axios.get(
-        process.env.NODE_ENV === "development"
-          ? pharmaciesData_API
-          : pharmaciesData_API_CORS
-      );
+      let res = await this.$axios.get(pharmaciesData_API);
+      alert(pharmaciesData_API);
       console.log(process.env.NODE_ENV);
       ctx.commit("updateDebugLog", { log: res });
       console.log(res);
