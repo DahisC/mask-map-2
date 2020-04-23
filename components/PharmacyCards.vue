@@ -250,8 +250,15 @@ export default {
   box-shadow: 6px 6px 6px 1px rgba(0, 0, 0, 0.1);
 }
 
+.card-text > div {
+  display: flex;
+  align-items: baseline;
+}
+
+.card-text > div > span:nth-of-type(1),
 .card-text > div > span:nth-of-type(2) {
-  vertical-align: bottom;
+  display: inline-block;
+  margin: 1px 2px;
 }
 
 .card-footer {

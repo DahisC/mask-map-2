@@ -104,19 +104,19 @@ function initContent({ pharmacy: p }) {
       <div><p style="margin: 0px 0px 10px 0px; font-size: 1.8em; color: #0ba29c; font-weight: bold;">${
         p.name
       }</p></div>
-      <div style="color: #706e6b; font-size: 1.2em;"><span><img style="vertical-align: unset;" src="${
+      <div style="display: flex; align-items: flex-start; color: #706e6b; font-size: 1.2em;"><span style="display: inline-block; margin: 1px 2px;"><img style="vertical-align: unset;" src="${
         window.location.href
-      }icons/Phone.svg" /></span><span style="margin: 10px; color: #706e6b; vertical-align: text-top;">${
+      }icons/Phone.svg" /></span><span style="color: #706e6b; display: inline-block; margin: 1px 2px;">${
     p.phone
   }</span></div>
-      <div style="color: #706e6b; font-size: 1.2em;"><span><img style="vertical-align: unset;" src="${
+      <div style="display: flex; align-items: flex-start; color: #706e6b; font-size: 1.2em;"><span style="display: inline-block; margin: 1px 2px;"><img style="vertical-align: unset;" src="${
         window.location.href
-      }icons/House.svg" /></span><span style="margin: 10px; color: #706e6b; vertical-align: text-top;">${
+      }icons/House.svg" /></span><span style="color: #706e6b; display: inline-block; margin: 1px 2px;">${
     p.address
   }</span></div>
-      <div style="color: #706e6b; font-size: 1.2em;"><span><img style="vertical-align: unset;" src="${
+      <div style="display: flex; align-items: flex-start; color: #706e6b; font-size: 1.2em;"><span style="display: inline-block; margin: 1px 2px;"><img style="vertical-align: unset;" src="${
         window.location.href
-      }icons/Calendar.svg" /></span><span style="margin: 10px; color: #706e6b; vertical-align: text-top;">${
+      }icons/Calendar.svg" /></span><span style="color: #706e6b; display: inline-block; margin: 1px 2px;">${
     p.note
   }</span></div>
     </div>
