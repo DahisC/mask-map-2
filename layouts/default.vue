@@ -38,7 +38,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgba(11, 162, 156, 0.25);
+  background-color: rgb(146, 243, 240);
 }
 
 ::-webkit-scrollbar-thumb {
