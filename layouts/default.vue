@@ -38,10 +38,10 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(146, 243, 240);
+  background-color: rgb(240, 240, 240);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(11, 162, 156, 0.5);
+  background-color: rgba(11, 162, 157, 0.5);
 }
 </style>
