@@ -145,10 +145,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+/* 在覆蓋原本的 Bootstrap 樣式時，不能有 scoped */
 ul.dropdown-menu {
-  overflow-y: scroll;
-  max-height: 300px;
-  font-size: 3em;
+  overflow-y: auto;
+  max-height: 50vh;
 }
 </style>
