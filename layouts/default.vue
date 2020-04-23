@@ -30,4 +30,18 @@
   max-width: 300px !important;
   max-height: 600px !important;
 }
+
+/* Track */
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(11, 162, 156, 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(11, 162, 156, 0.5);
+}
 </style>
