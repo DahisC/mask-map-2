@@ -3,8 +3,13 @@
     <b-col cols="12">
       <b-button block pill variant="outline-info" v-b-modal.searching-modal>
         <b-icon-search class="mr-1" scale="1" />
-        <span>{{ searchingCity }}</span>
-        <span v-if="searchingArea !== ''">， {{ searchingArea }}</span>
+        <template v-if="searchingFor === 'Nearby'">
+          <span>附近的藥局</span>
+        </template>
+        <template v-if="searchingFor === 'Area'">
+          <span>{{ searchingCity }}</span>
+          <span v-if="searchingArea !== ''">， {{ searchingArea }}</span>
+        </template>
       </b-button>
     </b-col>
     <b-modal id="searching-modal" hide-header-close :scrollable="false">
@@ -140,6 +145,9 @@ export default {
     },
     searchingArea() {
       return this.$store.state.searching.searchingArea;
+    },
+    searchingFor() {
+      return this.$store.state.searching.searchingFor;
     }
   }
 };
