@@ -117,7 +117,7 @@ export default {
   position: absolute;
   top: 100px;
   left: 0px;
-  z-index: 1000;
+  z-index: 5;
   padding: 7.5px;
   text-align: center;
   writing-mode: vertical-lr;

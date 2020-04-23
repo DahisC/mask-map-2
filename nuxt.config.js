@@ -10,7 +10,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || "",
+    title: "口罩地圖 by DahisC",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -21,7 +21,7 @@ module.exports = {
       }
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "/more-icon.svg" },
       {
         rel: "stylesheet",
         href: "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css",

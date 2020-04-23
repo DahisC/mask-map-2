@@ -44,4 +44,8 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgba(11, 162, 157, 0.5);
 }
+
+.b-overlay > div:nth-child(2) {
+  width: 90%;
+}
 </style>

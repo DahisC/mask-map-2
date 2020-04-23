@@ -63,5 +63,6 @@ function maskStockIcon({ stock }) {
 #map {
   height: 100%;
   position: relative;
+  z-index: 1;
 }
 </style>
