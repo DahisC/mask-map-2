@@ -106,6 +106,7 @@ export default {
 <style scoped>
 #overlay {
   z-index: 1000;
+  overflow: hidden;
 }
 
 #overlay-content div {
