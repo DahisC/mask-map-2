@@ -109,7 +109,7 @@ export default {
 }
 
 #overlay-content div {
-  margin: 10px 0px;
+  margin: 0px 0px;
 }
 
 #overlay-content ul {
