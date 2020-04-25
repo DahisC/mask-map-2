@@ -1,11 +1,5 @@
 <template>
-  <b-overlay
-    id="overlay"
-    :show="show"
-    blur="0.5em"
-    opacity="0.75"
-    variant="dark"
-  >
+  <b-overlay id="overlay" :show="show" blur="0.5em" opacity="0.75" variant="dark">
     <slot></slot>
     <template v-slot:overlay :style="{ width: '100%' }">
       <div
@@ -22,31 +16,31 @@
           <p class="text-center" :style="{ fontSize: '1.2em' }">口罩地圖</p>
           <ul>
             <li>
-              右上角的<b-img
-                src="../assets/locate-icon.svg"
-                width="30px"
-              />可以自動定位並搜尋附近藥局
+              右上角的
+              <b-img src="../assets/locate-icon.svg" width="30px" />可以自動定位並搜尋附近藥局
             </li>
-            <li>定位後可以顯示與藥局之間的<BIconArrow90degRight />距離</li>
             <li>
-              依照藥局的庫存量在地圖上顯示<span
-                :style="{ color: 'var(--color-main)' }"
-                >不</span
-              ><span :style="{ color: 'var(--color-yellow)' }">同</span
-              ><span :style="{ color: 'var(--color-red)' }">顏</span
-              ><span :style="{ color: 'gray' }">色</span>的標記
+              定位後可以顯示與藥局之間的
+              <BIconArrow90degRight />距離
+            </li>
+            <li>
+              依照藥局的庫存量在地圖上顯示
+              <span :style="{ color: 'var(--color-main)' }">不</span>
+              <span :style="{ color: 'var(--color-yellow)' }">同</span>
+              <span :style="{ color: 'var(--color-red)' }">顏</span>
+              <span :style="{ color: 'gray' }">色</span>的標記
               <ul>
                 <li>
-                  <b-img src="../assets/more-icon.svg" width="15px" /> 充足
+                  <b-img src="../assets/more-icon.svg" width="15px" />充足
                 </li>
                 <li>
-                  <b-img src="../assets/average-icon.svg" width="15px" /> 普通
+                  <b-img src="../assets/average-icon.svg" width="15px" />普通
                 </li>
                 <li>
-                  <b-img src="../assets/less-icon.svg" width="15px" /> 少量
+                  <b-img src="../assets/less-icon.svg" width="15px" />少量
                 </li>
                 <li>
-                  <b-img src="../assets/soldout-icon.svg" width="15px" /> 售完
+                  <b-img src="../assets/soldout-icon.svg" width="15px" />售完
                 </li>
               </ul>
             </li>
@@ -55,13 +49,7 @@
           </ul>
         </div>
         <div>
-          <b-button
-            variant="info"
-            @click="show = false"
-            :style="{ textAlign: 'center' }"
-          >
-            我知道了
-          </b-button>
+          <b-button variant="info" @click="show = false" :style="{ textAlign: 'center' }">我知道了</b-button>
         </div>
         <div
           :style="{
@@ -72,8 +60,12 @@
             color: 'antiqueWhite'
           }"
         >
-          <p><BIconCodeSlash scale="1" /> DahisC</p>
-          <p><BIconPencil scale="1" /> K.T</p>
+          <p>
+            <BIconCodeSlash scale="1" />&nbsp;DahisC
+          </p>
+          <p>
+            <BIconBrush scale="1" />&nbsp;K.T
+          </p>
         </div>
       </div>
     </template>
@@ -85,7 +77,7 @@ import {
   BIcon,
   BIconArrow90degRight,
   BIconCodeSlash,
-  BIconPencil
+  BIconBrush
 } from "bootstrap-vue";
 
 export default {
@@ -93,7 +85,7 @@ export default {
     BIcon,
     BIconArrow90degRight,
     BIconCodeSlash,
-    BIconPencil
+    BIconBrush
   },
   data() {
     return {
